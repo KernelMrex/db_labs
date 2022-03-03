@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: pass1234
     ports:
-    - 3306:3306
+      - 3306:3306
     volumes:
       - lab3_db_volume:/var/lib/mysql
       - .:/data/.:ro
