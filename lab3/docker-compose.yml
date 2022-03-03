@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  lab1_db:
+  lab3_db:
     container_name: lab3_db
     image: percona:8.0
     restart: on-failure
@@ -10,9 +10,9 @@ services:
     ports:
     - 3306:3306
     volumes:
-      - lab1_db_volume:/var/lib/mysql
+      - lab3_db_volume:/var/lib/mysql
       - .:/data/.:ro
     cap_add: [ SYS_NICE ]
 
 volumes:
-  lab1_db_volume:
+  lab3_db_volume:
