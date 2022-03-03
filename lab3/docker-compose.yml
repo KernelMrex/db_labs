@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   lab1_db:
-    container_name: lab1_db
+    container_name: lab3_db
     image: percona:8.0
     restart: on-failure
     environment:
