@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS `task14`;
 USE `task14`;
 
 CREATE TABLE IF NOT EXISTS `coach` (
-    `coach_id` INT NOT NULL,
+    `coach_id` INT NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(255) NOT NULL,
     `middle_name` VARCHAR(255),
     `last_name` VARCHAR(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `coach` (
 );
 
 CREATE TABLE IF NOT EXISTS `student` (
-    `student_id` INT NOT NULL,
+    `student_id` INT NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(255) NOT NULL,
     `middle_name` VARCHAR(255),
     `last_name` VARCHAR(255) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 );
 
 CREATE TABLE IF NOT EXISTS `standart` (
-    `standart_id` INT NOT NULL,
+    `standart_id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255),
     `description` TEXT NOT NULL,
     `sex` TINYINT NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `standart` (
 );
 
 CREATE TABLE IF NOT EXISTS `examinator` (
-    `examinator_id` INT NOT NULL,
+    `examinator_id` INT NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(255) NOT NULL,
     `middle_name` VARCHAR(255),
     `last_name` VARCHAR(255) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `examinator` (
 );
 
 CREATE TABLE IF NOT EXISTS `result` (
-    `result_id` INT NOT NULL,
+    `result_id` INT NOT NULL AUTO_INCREMENT,
     `student_id` INT NOT NULL,
     `standart_id` INT NOT NULL,
     `examinator_id` INT NOT NULL,
