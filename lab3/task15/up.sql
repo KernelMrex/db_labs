@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS `task15`;
 USE `task15`;
 
 CREATE TABLE IF NOT EXISTS `transport_node` (
-    `transport_node_id` INT NOT NULL,
+    `transport_node_id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
     `location` VARCHAR(255) NOT NULL,
     `type` TINYINT NOT NULL DEFAULT 1,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `transport_node` (
 );
 
 CREATE TABLE IF NOT EXISTS `route` (
-    `route_id` INT NOT NULL,
+    `route_id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
     `starting_node_id` INT NOT NULL,
     `destination_node_id` INT NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `route` (
 );
 
 CREATE TABLE IF NOT EXISTS `passenger` (
-    `passenger_id` INT NOT NULL,
+    `passenger_id` INT NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(255) NOT NULL,
     `middle_name` VARCHAR(255),
     `last_name` VARCHAR(255) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `passenger` (
 );
 
 CREATE TABLE IF NOT EXISTS `transport` (
-    `transport_id` INT NOT NULL,
+    `transport_id` INT NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(255) NOT NULL,
     `type` TINYINT NOT NULL DEFAULT 1,
     `current_route_id` INT,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `transport` (
 );
 
 CREATE TABLE IF NOT EXISTS `ticket` (
-    `ticket_id` INT NOT NULL,
+    `ticket_id` INT NOT NULL AUTO_INCREMENT,
     `price` INT NOT NULL,
     `currency` CHAR(3) NOT NULL,
     `passenger_id` INT NOT NULL,
