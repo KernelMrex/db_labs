@@ -50,5 +50,7 @@ CREATE TABLE IF NOT EXISTS `ticket` (
     `route_id` INT NOT NULL,
     `transport_id` INT NOT NULL,
     `datetime_at` DATETIME NOT NULL,
-    PRIMARY KEY (`ticket_id`)
+    PRIMARY KEY (`ticket_id`),
+    FOREIGN KEY (`passenger_id`) REFERENCES `passenger`(`passenger_id`),
+    FOREIGN KEY (`transport_id`) REFERENCES `transport`(`transport_id`)
 );
