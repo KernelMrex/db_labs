@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `criminal`
 (
     `criminal_id` INT          NOT NULL AUTO_INCREMENT,
     `code`        INT          NOT NULL,
+    `minor_code`  TINYINT      NOT NULL,
     `name`        VARCHAR(255) NOT NULL,
     `description` TEXT         NOT NULL,
     PRIMARY KEY (`criminal_id`)
