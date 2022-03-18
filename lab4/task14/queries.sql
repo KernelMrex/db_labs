@@ -88,7 +88,7 @@ WHERE end_of_term = '2023-06-11 06:46:07';
 -- b. WHERE дата в диапазоне
 SELECT *
 FROM imprisonment
-WHERE end_of_term BETWEEN '2025-01-01 00:00:00' AND '2030-01-01 00:00:00';
+WHERE end_of_term BETWEEN '2025-01-01' AND '2030-01-01';
 
 -- c. Извлечь из таблицы не всю дату, а только год. Например, год рождения автора.
 -- Для этого используется функция YEAR
@@ -207,7 +207,7 @@ SELECT `name`,
            WHERE c.case_id = e.case_id
            ORDER BY date_of_given DESC
            LIMIT 1
-       )
+       ) AS name
 FROM `case` c;
 
 -- c. Написать запрос вида SELECT * FROM (подзапрос)
