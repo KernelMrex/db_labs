@@ -109,6 +109,21 @@ WHERE h.name='Космос'
 -- клиентам в один номер. Записи в таблице room_in_booking с id_room_in_booking = 5 и 2154
 -- являются примером неправильного с остояния, которые необходимо найти. Результирующий
 -- кортеж выборки должен содержать информацию о двух конфликтующих номерах.
+SELECT rib1.id_room_in_booking,
+       rib2.id_room_in_booking,
+       rib1.checkin_date,
+       rib1.checkout_date,
+       rib2.checkin_date,
+       rib2.checkout_date
+FROM room_in_booking rib1
+    INNER JOIN room_in_booking rib2
+        ON rib1.id_room_in_booking <> rib2.id_room_in_booking
+        AND rib1.id_room = rib2.id_room
+        AND ((rib1.checkin_date BETWEEN rib2.checkin_date AND rib2.checkout_date)
+           OR (rib2.checkin_date BETWEEN rib1.checkin_date AND rib1.checkout_date)
+           OR (rib1.checkout_date BETWEEN rib2.checkin_date AND rib2.checkout_date)
+           OR (rib2.checkout_date BETWEEN rib1.checkin_date AND rib1.checkout_date))
+;
 
 -- 8. Создать бронирование в транзакции
 START TRANSACTION;
