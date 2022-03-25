@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  lab6_db:
+    container_name: lab6_db
+    image: percona:8.0
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: pass1234
+    ports:
+      - 3306:3306
+    volumes:
+      - lab6_db_volume:/var/lib/mysql
+      - .:/data/.:ro
+    cap_add: [ SYS_NICE ]
+
+volumes:
+  lab6_db_volume:
