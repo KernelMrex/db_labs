@@ -134,3 +134,7 @@ VALUES (100001, 10001, 1, '2022.04.01', '2022.04.08');
 COMMIT;
 
 -- 9. Добавить необходимые индексы для всех таблиц
+ALTER TABLE hotel ADD INDEX ix_hotel_name(name);
+ALTER TABLE room_in_booking
+    ADD INDEX ix_room_in_booking_check_in_date(checkin_date),
+    ADD INDEX ix_room_in_booking_check_out_date(checkout_date);
