@@ -119,11 +119,14 @@ FROM room_in_booking rib1
     INNER JOIN room_in_booking rib2
         ON rib1.id_room_in_booking <> rib2.id_room_in_booking
         AND rib1.id_room = rib2.id_room
-        AND ((rib1.checkin_date BETWEEN rib2.checkin_date AND rib2.checkout_date)
-           OR (rib2.checkin_date BETWEEN rib1.checkin_date AND rib1.checkout_date)
-           OR (rib1.checkout_date BETWEEN rib2.checkin_date AND rib2.checkout_date)
-           OR (rib2.checkout_date BETWEEN rib1.checkin_date AND rib1.checkout_date))
-;
+        AND (
+            (
+                (rib1.checkin_date BETWEEN rib2.checkin_date AND rib2.checkout_date)
+                OR (rib2.checkin_date BETWEEN rib1.checkin_date AND rib1.checkout_date)
+            )
+           AND (rib2.checkout_date BETWEEN rib1.checkin_date AND rib1.checkout_date)
+        )
+ORDER BY rib1.id_room;
 
 -- 8. Создать бронирование в транзакции
 START TRANSACTION;
